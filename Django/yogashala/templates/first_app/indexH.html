@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<title>Yogashaala - Home</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'images/icons/yoga.ico'%} "/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css'%} ">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%} ">
+<!--===============================================================================================-->
+<style>
+html {
+	scroll-behavior: smooth;
+  }
+</style>
+</head>
+
+<body>
+	
+<!--header start-->	
+	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+		<a class="navbar-brand" href="#">
+			<img src="{% static 'images/icons/symbol.jpeg'%} " width="30" height="30" class="d-inline-block align-top" alt="">
+			Yogashaala</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+			  <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="#about_us">About Us</a>
+			</li>
+			  <li class="nav-item">
+			  <a class="nav-link pagescroll" href="#team">Instructors</a>
+			</li>
+			   <li class="nav-item">
+				<a class="nav-link pagescroll" href="#pricing_table">Packages</a>
+			</li>
+			   <li class="nav-item">
+				<a class="nav-link pagescroll" href="#contactus">Contact Us</a>
+			</li>
+		  </ul>
+
+	        <ul class="navbar-nav right hide-on-med-and-down">
+				<li>
+					<a class="nav-link" aria-current="page" href="/login/">Login</a>
+				</li>
+		    </ul>
+		</div>
+	</nav>
+	 <!--Header end--> 
+
+
+	     <!-- Half Section -->
+		 <section class="half_section_main half_section_right bg_grey bg-light" id="about_us">
+
+			<div class="half_section_picture d-none d-md-block hidden-sm hidden-xs"></div>
+	
+			<div class="container container_big">
+	
+				<div class="row">
+	
+					<div class="col-md-6 col-12">
+	
+						<div class="side_section_text big_padding">
+	
+							<p class="default_small_heading raleway blue_color font_200"><b>Information About Us</b></p>
+	
+							<h3 class="default_section_heading raleway navy_blue"><span class="font_200"> Our </span> Yoga Shaala <span class="font_200"> Studio </span></h3>
+	
+							<hr class="default_divider default_divider_blue " style="margin-left: 0;">
+	
+							<p class="default_text_light default_text open_sans" style="text-align: justify">
+	
+								In Sanskrit, the word Yoga Shaala means a place to learn Yoga. Yoga Shaala is located at the heart of Muscat in the Sultanate of Oman. We provide you a clean, convenient and comfortable environment to practice yoga and explore more. We are proud to offer different types of yoga class for practitioners of all levels from beginner to advanced by internationally recognized and qualified yoga teachers. We are a team of an inspirational and dedicated tribe of teachers, our expertise, experience, and passion shine through in the classroom.
+								<br/>
+								At Yoga Shaala, we are dedicated to give people the most comprehensive and authentic yoga experience with our team of experienced Yoga Teachers from India. Yoga Shaala is a sanctuary where members can immerse in a complete wellness experience. We believe in the power of yoga to help people lead happier, healthier and more balanced lives. With a community of dedicated and passionate teachers Yoga Shaala offers exceptional teaching, facilities and environment that inspires people of all ages and abilities to make yoga part of their lives.
+								
+							</p>
+
+						</div>
+	
+					</div>
+	
+				</div>
+	
+			</div>
+	
+			</div>
+	
+		</section>
+		<!-- half Section Ended -->
+
+
+	        <!-- Team Section -->
+    <section class="team_section big_padding text-center " id="team">
+
+        <div class="container">
+
+            <p class="raleway default_small_heading blue_color font_200"><b>Get to know</b></p>
+
+            <div class="col-md-12">
+
+                <h2 class="default_section_heading text-center">
+
+                            <span class="font_200">
+
+                                Our
+
+                            </span>
+
+                    Teaching
+
+                    <span class="font_200">
+
+                                Team
+
+                            </span>
+
+                </h2>
+
+                <hr class="default_divider default_divider_blue default_divider_big">
+
+
+                            <div class="team_detail wow slideInLeft">
+
+                                <div class="team_detail_inner">
+
+                                    <img src="{% static '/images/team-1.png' %}" alt="team_img">
+
+                                </div>
+
+                                <h3 class="small_heading_navy default_small_heading navy_blue text-center raleway font_400">Marksim Karki</h3>  
+
+                            </div>
+
+                            <div class="team_detail wow fadeInUpBig">
+
+                                <div class="team_detail_inner">
+
+                                    <img src="{% static 'images/team-2.png' %}" alt="team_img">
+
+                                </div>
+
+                                <h3 class="small_heading_navy default_small_heading navy_blue text-center raleway font_400">Yogesh</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+        <!-- Team Section End -->
+
+		<!-- Pricing Table -->
+		<section class="pricing_section big_padding bg_grey bg-dark" id="pricing_table">
+
+			<div class="container">
+	
+				<div class="pricing_table_section">
+	
+					<p class="default_text raleway text-center default_small_heading blue_color font_200"><b>New Plans</b></p>
+	
+					<h2 class="default_section_heading text-center">
+	
+								<span class="font_200">
+	
+									Our
+	
+								</span>
+	
+						Investment 
+	
+						<span class="font_200">
+	
+									Table
+	
+								</span>
+	
+					</h2>
+	
+					<hr class="default_divider default_divider_blue default_divider_big">
+	
+					<div class="row">
+	
+						<div class="col-sm-4">
+	
+							<div class="pricing_table_column wow slideInLeft">
+	
+								<h3 class="small_heading_navy raleway">Online Yoga Membership</h3>
+	
+								<div class="price">
+	
+									<div class="row">
+	
+										<div class="col-lg-4">
+	
+											<h2 class="open_sans font_400 pink_color"><span class="dollar raleway"></span>35<br><span class="month raleway">Month</span></h2>
+	
+										</div>
+	
+										<div class="col-lg-8" style="text-align: justify">
+	
+											<p>Get access to unlimited online classes we offer every day.</p>
+	
+										</div>
+	
+									</div>
+	
+								</div>
+	
+								<ul class="packages">
+	
+									<li><i class="fa fa-check" aria-hidden="true"></i>Full access - to online classes</li>
+	
+									<li><i class="fa fa-check" aria-hidden="true"></i>Unlimited Online Classes</li>
+	
+									<li><i class="fa fa-check" aria-hidden="true"></i>No booking needed</li>
+	
+									<li><i class="fa fa-check" aria-hidden="true"></i>Non - Refundable / Transferable</li>
+	
+									<li><i class="fa fa-check" aria-hidden="true"></i>Share within Family</li>
+	
+								</ul>
+	
+								<div class="container-login100-form-btn">
+									<div class="wrap-login100-form-btn">
+										<div class="login100-form-bgbtn"></div>
+
+											<a  target="_blank" href="https://wa.me/96895753154?text=I'm%20interested%20in%20enrolling%20for%20Unlimted%20Online%20Plus%20Studio%20Classes" class="login100-form-btn">Buy Now</a>
+									</div>
+								</div>
+	
+							</div>
+	
+						</div>
+	
+						<div class="col-sm-4">
+	
+							<div class="pricing_table_column blue_price wow fadeInUpBig">
+	
+								<h3 class="small_heading_navy raleway white_color">Always Yoga Membership</h3>
+	
+								<div class="price">
+	
+									<div class="row">
+	
+										<div class="col-lg-4">
+	
+											<h2 class="open_sans font_400 white_color"><span class="dollar raleway"></span>Spl<br><span class="month raleway"></span></h2>
+	
+										</div>
+	
+										<div class="col-lg-8" style="text-align: justify">
+	
+											<p>Get access to unlimited Online classes & In - Studio classes we offer every day.</p>
+	
+										</div>
+	
+									</div>
+	
+								</div>
+	
+								<ul class="packages">
+	
+									<li><i class="fa fa-check" aria-hidden="true"></i>Full access - to online & studio classes</li>
+	
+									<li><i class="fa fa-check" aria-hidden="true"></i>Unlimited Classes per month</li>
+	
+									<li><i class="fa fa-check" aria-hidden="true"></i>Priority Booking for Studio Classes</li>
+	
+									<li><i class="fa fa-check" aria-hidden="true"></i>Non - Refundable / Transferable</li>
+	
+									<li><i class="fa fa-check" aria-hidden="true"></i>Non - Sharable</li>
+	
+								</ul>
+
+	                            <div class="container-login100-form-btn">
+									<div class="wrap-login100-form-btn">
+										<div class="login100-form-bgbtn"></div>
+
+											<a  target="_blank" href="https://wa.me/96895753154?text=I'm%20interested%20in%20enrolling%20for%20Unlimted%20Online%20Plus%20Studio%20Classes" class="login100-form-btn">Buy Now</a>
+									</div>
+								</div>
+	
+							</div>
+	
+						</div>
+	
+						<div class="col-sm-4">
+	
+							<div class="pricing_table_column wow slideInRight">
+	
+								<h3 class="small_heading_navy raleway">One Time Drop In Class</h3>
+	
+								<div class="price">
+	
+									<div class="row">
+	
+										<div class="col-lg-4">
+	
+											<h2 class="open_sans font_400 pink_color"><span class="dollar raleway"></span>05<br><span class="month raleway">class</span></h2>
+	
+										</div>
+	
+										<div class="col-lg-8">
+	
+											<p>Get access to one drop in - Studio / Online class.</p>
+	
+										</div>
+	
+									</div>
+	
+								</div>
+	
+								<ul class="packages">
+	
+									<li><i class="fa fa-check" aria-hidden="true"></i>One Time access</li>
+	
+									<li><i class="fa fa-check" aria-hidden="true"></i> Choose Online / In Studio Class</li>
+	
+									<li><i class="fa fa-check" aria-hidden="true"></i>Pre Booking mandatory</li>
+	
+									<li><i class="fa fa-check" aria-hidden="true"></i>Non - Refundable / Transferable</li>
+	
+									<li><i class="fa fa-check" aria-hidden="true"></i>Non - Sharable</li>
+	
+								</ul>
+	
+								<div class="container-login100-form-btn">
+									<div class="wrap-login100-form-btn">
+										<div class="login100-form-bgbtn"></div>
+
+											<a  target="_blank" href="https://wa.me/96895753154?text=I'm%20interested%20in%20enrolling%20for%20Unlimted%20Online%20Plus%20Studio%20Classes" class="login100-form-btn">Buy Now</a>
+									</div>
+								</div>
+	
+							</div>
+	
+						</div>
+	
+					</div>
+	
+				</div>
+	
+			</div>
+	
+		</section>
+		<!-- Pricing Table End -->
+
+
+		<!--Contact Us -->
+        <section id="contactus" class="big_padding bg-transparent">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-title wow fadeIn" data-wow-delay="300ms">
+                            <h5> Wish to talk? </h5>
+                            <h2> Let's Get In Touch </h2>
+                            <hr class="default_divider default_divider_blue">
+                            
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-4 d-flex flex-column justify-content-start align-item-center contact_address heading_space wow fadeInLeft" data-wow-delay="400ms">
+                        <div class="contact-table my-3">
+                            <div class="d-table-cell cells">
+                                <span class="icon-cell"><i class="fa fa-map-marker fa-lg fa-2x mr-2"></i></span>
+                            </div>
+                            <div class="d-table-cell cells">
+                                <h4 class="color-black m-0">Visit Us</h4>
+                                <p>A-G-10, Al Assalah Towers,<br/>
+                                   Al Ghubra, Sultanate of Oman.</p>
+                            </div>
+                        </div>
+                        <div class="contact-table my-3">
+                            <div class="d-table-cell cells">
+                                <span class="icon-cell"><i class="fa fa-envelope fa-lg fa-x mr-2"></i></span>
+                            </div>
+                            <div class="d-table-cell cells">
+                                <h4 class="color-black m-0">Email Us</h4>
+                                <p><a href="mailto:info@yogashaala.net" class="para-color">info@yogashaala.net</a> </p>
+                            </div>
+                        </div>
+                        <div class="contact-table my-3">
+                            <div class="d-table-cell cells">
+                                <span class="icon-cell"><i class="fa fa-whatsapp fa-lg fa-2x mr-2"></i></span>
+                            </div>
+                            <div class="d-table-cell cells">
+                                <h4 class="color-black m-0">WhatsApp</h4>
+                                <p><a href="https://api.whatsapp.com/send?phone=96895753154" target="blank" class="para-color">+968 95753154</a> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 heading_space wow fadeInRight" data-wow-delay="450ms">
+                        <!-- id contact-form-->
+                        <div class="col-md-12 wow fadeInUp" data-wow-delay="350ms">
+                            <div id="map-container">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.627506305621!2d58.39672361391658!3d23.581818101114678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e91ffb7204da96b%3A0x6064bb55a38c016!2sYoga%20Shaala!5e0!3m2!1sen!2som!4v1594717170329!5m2!1sen!2som"></iframe>
+                            </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        <!--Contact Us End -->	
+
+	
+
+	<div id="dropDownSelect1"></div>
+	<!-- Footer -->
+<footer class="page-footer font-small bg-light">
+
+	<!-- Footer Elements -->
+  <div class="container  text-center black-text py-3"> 
+  
+	  <!-- Grid row-->
+	  <div class="row">
+  
+		<!-- Grid column -->
+		<div class="col-md-12 justify-content: space-around">
+		  <div class="flex-center">
+  
+			<!-- Facebook -->
+			<a class="fb-ic" href="https://www.facebook.com/yogashaala">
+			  <i class="fa fa-facebook-f fa-lg  text-center black-text  fa-2x mr-3 ml-3" > </i>
+			</a>
+			  <!--Instagram-->
+			<a class="ins-ic" href="https://www.instagram.com/yogashaala">
+			  <i class="fa fa-instagram fa-lg text-center black-text fa-2x mr-3 ml-3" > </i>
+			</a>
+			
+			<!-- Google +-->
+			<a class="gplus-ic" href="mailto:info@yogashaala.net?cc=marksim@yogashaala.net&subject=Website%20Contact&body=I%20would%20like%20to%20more%20about%20the%20classes.%20This%20is%20my%20contact%20number%20and%20email%20address.">
+			  <i class="fa fa-google fa-lg  text-center black-text  fa-2x mr-3 ml-3" > </i>
+			</a>
+			
+			<!--whatsapp -->
+			<a class="wh-ic" href="https://wa.me/96895753154?text=Please%20write%20your%20name%2C%20mobile%20and%20email%20and%20the%20nature%20of%20your%20enquiry.">
+			  <i class="fa fa-whatsapp fa-lg  black-text text-center black-text fa-2x mr-3 ml-3" > </i>
+			</a>
+			
+		   
+		  </div>
+		  
+		</div>
+		<!-- Grid column -->
+  
+	  </div>
+	  <!-- Grid row-->
+	  <!-- Grid row-->
+  
+	</div>
+	<!-- Footer Elements -->
+  
+	<!-- Copyright -->
+	<div class="footer-copyright text-center black-text py-3">© Copyright 2021 :
+	  <a href="#" class="black-text"> Yoga Shaala - All rights reserved. </a>
+	</div>
+	<!-- Copyright -->
+  
+  </footer>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+		<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+		<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html> 

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<title>Yogashala - Sign Up</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/yoga.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+
+	<!--===============================================================================================-->
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+		<a class="navbar-brand" href="">
+			<img src="{% static 'images/icons/symbol.jpeg'%} " width="30" height="30" class="d-inline-block align-top" alt="">
+			Yogashaala</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+			  <a class="nav-link" href="/TeacherHome/">Dashboard<span class="sr-only">(current)</span></a>
+			</li>
+			 <li class="nav-item">
+			  <a class="nav-link" href="/indext/">Home</a>
+			</li>
+
+			<li class="nav-item">
+			  <a class="nav-link" href="/reschedule/">Resheduling Request</a>
+			</li>
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  Attendance
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				  <a class="dropdown-item" href="/attendance_add/">Attendance Entry</a>
+				  <div class="dropdown-divider"></div>
+				  <a class="dropdown-item" href="/attendance_view/">View Attendance</a>
+				</div>
+			</li>
+		  </ul>
+
+	        <ul class="navbar-nav right hide-on-med-and-down">
+			    <li>
+				<a class="nav-link" aria-current="page" href='/logout/'>Log Out</a>
+			    </li>
+		    </ul>
+		</div>
+	</nav>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url({% static 'images/bg-01.jpeg' %});">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+				<form class="login100-form validate-form" method="POST">
+					{% csrf_token %}
+					<span class="login100-form-title p-b-49">
+						Rescheduling Request
+					</span>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Required" >
+						<span class="label-input100">Scheduled Date & Time</span>
+						<div class="datetimepicker p-l-50" >
+                            <input type="date" id="sdate" value="dd-mm-yyyy">
+                            <span>|</span>
+                            <input type="time" id="stime" value="00:00">
+                        </div>
+					</div>
+
+                  <div class="wrap-input100 validate-input m-b-23" data-validate="Required">
+						<span class="label-input100">Rescheduled Date & Time</span>
+						<div class="datetimepicker p-l-50" >
+                            <input type="date" id="rdate" value="dd-mm-yyyy">
+                            <span>|</span>
+                            <input type="time" id="rtime" value="00:00">
+                        </div>
+					</div>
+
+
+
+
+                  <div class="wrap-input100 validate-input m-b-23" data-validate = "Reason is required">
+						<span class="label-input100">Reason</span>
+						<input class="input100" type="text" id="reason" placeholder="Type your reason">
+						<span class="focus-input100" data-symbol="&#xf10c;"></span>
+					</div>
+
+
+
+
+
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" data-toggle="modal" data-target="#submit" >
+								Submit
+							</button>
+						</div>
+					</div>
+
+
+
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+<footer class="page-footer font-small bg-light">
+
+	<!-- Footer Elements -->
+  <div class="container  text-center black-text py-3">
+
+	  <!-- Grid row-->
+	  <div class="row">
+
+		<!-- Grid column -->
+		<div class="col-md-12 justify-content: space-around">
+		  <div class="flex-center">
+
+			<!-- Facebook -->
+			<a class="fb-ic" href="https://www.facebook.com/yogashaala">
+			  <i class="fa fa-facebook-f fa-lg  text-center black-text  fa-2x mr-3 ml-3" > </i>
+			</a>
+			  <!--Instagram-->
+			<a class="ins-ic" href="https://www.instagram.com/yogashaala">
+			  <i class="fa fa-instagram fa-lg text-center black-text fa-2x mr-3 ml-3" > </i>
+			</a>
+
+			<!-- Google +-->
+			<a class="gplus-ic" href="mailto:info@yogashaala.net?cc=marksim@yogashaala.net&subject=Website%20Contact&body=I%20would%20like%20to%20more%20about%20the%20classes.%20This%20is%20my%20contact%20number%20and%20email%20address.">
+			  <i class="fa fa-google fa-lg  text-center black-text  fa-2x mr-3 ml-3" > </i>
+			</a>
+
+			<!--whatsapp -->
+			<a class="wh-ic" href="https://wa.me/96895753154?text=Please%20write%20your%20name%2C%20mobile%20and%20email%20and%20the%20nature%20of%20your%20enquiry.">
+			  <i class="fa fa-whatsapp fa-lg  black-text text-center black-text fa-2x mr-3 ml-3" > </i>
+			</a>
+
+
+		  </div>
+
+		</div>
+		<!-- Grid column -->
+
+	  </div>
+	  <!-- Grid row-->
+	  <!-- Grid row-->
+
+	</div>
+	<!-- Footer Elements -->
+
+	<!-- Copyright -->
+	<div class="footer-copyright text-center black-text py-3">© Copyright 2021 :
+	  <a href="" class="black-text"> Yoga Shaala - All rights reserved. </a>
+	</div>
+	<!-- Copyright -->
+
+  </footer>
+
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+		<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+		<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'js/main.js' %}"></script>
+
+
+</body>
+</html>

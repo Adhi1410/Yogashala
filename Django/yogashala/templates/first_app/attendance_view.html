@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<title>Yogashala - Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/yoga.ico'%} "/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css'%} ">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+		<a class="navbar-brand" href="">
+			<img src="{% static 'images/icons/symbol.jpeg'%} " width="30" height="30" class="d-inline-block align-top" alt="">
+			Yogashaala</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+			  <a class="nav-link" href="/TeacherHome/">Dashboard<span class="sr-only">(current)</span></a>
+			</li>
+			 <li class="nav-item">
+			  <a class="nav-link" href="/indext/">Home</a>
+			</li>
+
+			<li class="nav-item">
+			  <a class="nav-link" href="/reschedule/">Resheduling Request</a>
+			</li>
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  Attendance
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				  <a class="dropdown-item" href="/attendance_add/">Attendance Entry</a>
+				  <div class="dropdown-divider"></div>
+				  <a class="dropdown-item" href="/attendance_view/">View Attendance</a>
+				</div>
+			</li>
+		  </ul>
+
+	        <ul class="navbar-nav right hide-on-med-and-down">
+			    <li>
+				<a class="nav-link" aria-current="page" href='/logout/'>Log Out</a>
+			    </li>
+		    </ul>
+		</div>
+	</nav>
+
+
+
+
+
+		<div class="container-login100" style="background-image: url({% static 'images/bg-01.jpeg' %});">
+			<div class="wrap-login1001 p-l-55 p-r-55 p-t-65 p-b-54">
+				<form class="login100-form validate-form">
+					{% csrf_token %}
+					<span class="login100-form-title p-b-49">
+						View Attendance
+					</span>
+
+						<div class="text-right p-t-8 ">
+					<div align="center" class="p-b-10"><span> <b> Date & Time </b></span></div>
+					<div class="container-login100-form-btn p-b-10">
+						<input type="date" id="sdate" value="dd-mm-yyyy" data-toggle="button">
+						<input type="time" id="stime" value="00:00">
+					  <div class="container-login100-form-btn-append p-l-10">
+						<button class="btn btn-outline-dark" type="button">Search</button>
+					  </div>
+					</div>
+
+                    <div class="row">
+                        <div class="col-md-12 main-datatable">
+                            <div class="card_body">
+                                <div class="row d-flex">
+                                    <div class="col-sm-4 createSegment"></div>
+                                    <div class="col-sm-8 add_flex">
+                                        <div class="form-group searchInput">
+                                            <label for="email">Search </label>
+                                            <input type="search" class="form-control" id="filterbox" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="overflow-x">
+                                    <table style="width:100%" id="filtertable" class=" table table-hover table cust-datatable dataTable no-footer">
+                                        <thead>
+                                            <tr>
+                                                <th style="min-width: 50px;">S.No</th>
+                                                <th style="min-width: 100px;">Name</th>
+                                                <th style="min-width: 100px;">Date</th>
+                                                <th style="min-width: 100px;">Time</th>
+                                                <th style="min-width: 100px;">Present</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Kirthic Vishnu</td>
+                                                <td>18-oct-2021</td>
+                                                <td>12:30-2:00 PM</td>
+												<td>Present</td>
+
+
+                                            </tr>
+
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Adarsh</td>
+                                                <td>22-oct-2021</td>
+                                                <td>5:30-7:00 AM</td>
+                                                <td>Absent</td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+							<div class="container-login100-form-btn  p-t-25" >
+                        <a class="exc" href="">
+                              <i class="fa fa-file-excel-o fa-lg  black-text text-center black-text fa-2x mr-3 ml-3" > </i>
+                            </a>
+                      </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+	<!-- Footer -->
+<footer class="page-footer font-small bg-light">
+
+	<!-- Footer Elements -->
+  <div class="container  text-center black-text py-3">
+
+	  <!-- Grid row-->
+	  <div class="row">
+
+		<!-- Grid column -->
+		<div class="col-md-12 justify-content: space-around">
+		  <div class="flex-center">
+
+			<!-- Facebook -->
+			<a class="fb-ic" href="https://www.facebook.com/yogashaala">
+			  <i class="fa fa-facebook-f fa-lg  text-center black-text  fa-2x mr-3 ml-3" > </i>
+			</a>
+			  <!--Instagram-->
+			<a class="ins-ic" href="https://www.instagram.com/yogashaala">
+			  <i class="fa fa-instagram fa-lg text-center black-text fa-2x mr-3 ml-3" > </i>
+			</a>
+
+			<!-- Google +-->
+			<a class="gplus-ic" href="mailto:info@yogashaala.net?cc=marksim@yogashaala.net&subject=Website%20Contact&body=I%20would%20like%20to%20more%20about%20the%20classes.%20This%20is%20my%20contact%20number%20and%20email%20address.">
+			  <i class="fa fa-google fa-lg  text-center black-text  fa-2x mr-3 ml-3" > </i>
+			</a>
+
+			<!--whatsapp -->
+			<a class="wh-ic" href="https://wa.me/96895753154?text=Please%20write%20your%20name%2C%20mobile%20and%20email%20and%20the%20nature%20of%20your%20enquiry.">
+			  <i class="fa fa-whatsapp fa-lg  black-text text-center black-text fa-2x mr-3 ml-3" > </i>
+			</a>
+
+
+		  </div>
+
+		</div>
+		<!-- Grid column -->
+
+	  </div>
+	  <!-- Grid row-->
+	  <!-- Grid row-->
+
+	</div>
+	<!-- Footer Elements -->
+
+	<!-- Copyright -->
+	<div class="footer-copyright text-center black-text py-3">© Copyright 2021 :
+	  <a href="" class="black-text"> Yoga Shaala - All rights reserved. </a>
+	</div>
+	<!-- Copyright -->
+
+  </footer>
+
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+		<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+		<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+	<!--===============================================================================================-->
+		<script src="{% static 'js/main.js' %}"></script>
+		<script src="{% static 'js/dtable3.js' %}"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    	<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+
+</body>
+</html>
