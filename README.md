@@ -3,8 +3,11 @@
 <h2>OVERVIEW</h2>
 <p>To design a website which acts as a Point of Sales (POS) for a Yoga Company that is trying to adapt to the online mode of teaching due to the current pandemic situation.
 Our main focus while designing the website was geared towards providing the users with a pleasant one-stop experience for all their yoga needs. 
-Although the main focus was towards the user end we have provided dynamic functionalities for both the administration as well as the teachers 
+Although the main focus was towards the user end we have provided dynamic functionalities for both the administration as well as the teacher
 in order to ensure the website does not become obsolete and stays relevant in the ever-changing future.</p>
+
+<h4>NOTE: The proprietary video conferencing application is uploaded to another github repository for clarity and deployment purposes.<br>It can be accessed with the following link : "https://github.com/Cyber-Celestial/psg-meet-app".</h4>
+  
 
 <h2>KEY FEATURES</h2>
 a) Proprietary Video Conferencing Application.<br>
