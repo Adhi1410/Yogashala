@@ -101,7 +101,7 @@
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "Age in Numerals">
 						<span class="label-input100">Age *</span>
-						<input class="input100" type="text" name="age" placeholder="Age in Numerals">
+						<input class="input100" type="text" name="age" placeholder="{{age}}">
 						<span class="focus-input100" data-symbol="&#xf10c;"></span>
 					</div>
 
@@ -111,33 +111,33 @@
 						<span class="focus-input100" data-symbol="&#xf10a;"></span>
 					</div>
 
-                   <div class="wrap-input100 validate-input m-b-23" data-validate = "Gender is required">
+                   <div class="wrap-input100  m-b-23" >
 						<span class="label-input100">Gender * (M/F) </span>
-						<input class="input100" type="text" name="gender" placeholder="M/F" >
+						<input class="input100" type="text" name="gender" placeholder="{{gender}}" {{disabled}}>
 						<span class="focus-input100" data-symbol="&#xf10c;"></span>
 					</div>
 
                       <div class="wrap-input100 validate-input m-b-23" data-validate = "Height is required">
 						<span class="label-input100">Height * (m)</span>
-						<input class="input100" type="text" name="height" placeholder="Type your Height in m">
+						<input class="input100" type="text" name="height" placeholder="{{height}}">
 						<span class="focus-input100" data-symbol="&#xf10c;"></span>
 					</div>
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "Weight is required">
 						<span class="label-input100">Weight * (kg)</span>
-						<input class="input100" type="text" name="weight" placeholder="Type your weight in Kg">
+						<input class="input100" type="text" name="weight" placeholder="{{weight}}">
 						<span class="focus-input100" data-symbol="&#xf10c;"></span>
 					</div>
 
                     <div class="wrap-input100 m-b-23">
 						<span class="label-input100">Body Mass Index</span>
-						<input class="input100" type="text" name="bmi" placeholder="BMI will be updated here" disabled>
+						<input class="input100" type="text" name="bmi" placeholder="{{bmi}}" disabled >
 						<span class="focus-input100" data-symbol="&#xf10c;"></span>
 					</div>
 
                       <div class="wrap-input100  m-b-23" >
 						<span class="label-input100">Health Issues</span>
-						<input class="input100" type="text" name="issue" placeholder="Health Issues, if any" >
+						<input class="input100" type="text" name="issue" placeholder="{{issue}}" >
 						<span class="focus-input100" data-symbol="&#xf10c;"></span>
 					</div>
 

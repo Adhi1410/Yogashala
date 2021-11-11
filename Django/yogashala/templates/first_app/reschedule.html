@@ -2,31 +2,33 @@
 {% load static %}
 <html lang="en">
 <head>
-	<title>Yogashala - Sign Up</title>
+	<title>Yogashala </title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="{% static 'images/icons/yoga.ico' %}"/>
+	<link rel="icon" type="image/png" href="{% static 'images/icons/yoga.ico'%} "/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%} ">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css'%} ">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css'%} ">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css'%} ">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css'%} ">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css'%} ">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css'%} ">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css'%} ">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css'%} ">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%} ">
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 
 	<!--===============================================================================================-->
 </head>
@@ -50,7 +52,15 @@
 			</li>
 
 			<li class="nav-item">
-			  <a class="nav-link" href="/reschedule/">Resheduling Request</a>
+			  <a class="nav-link" href="/reschedule/">Rescheduling Request</a>
+			</li>
+
+            <li class="nav-item">
+			  <a class="nav-link" href="/reschedule_check/">Reschedule Check</a>
+			</li>
+
+			  <li class="nav-item">
+			  <a class="nav-link" href="/view_profile/">View Student Profile</a>
 			</li>
 
 			<li class="nav-item dropdown">
@@ -73,64 +83,128 @@
 		</div>
 	</nav>
 
+	<!--Data Table Start-->
+	<!--Data Table Start-->
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url({% static 'images/bg-01.jpeg' %});">
-			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+			<div class="wrap-login1001 p-l-55 p-r-55 p-t-65 p-b-54">
 				<form class="login100-form validate-form" method="POST">
 					{% csrf_token %}
 					<span class="login100-form-title p-b-49">
 						Rescheduling Request
 					</span>
 
-                    <div class="wrap-input100 validate-input m-b-23" data-validate="Required" >
-						<span class="label-input100">Scheduled Date & Time</span>
-						<div class="datetimepicker p-l-50" >
-                            <input type="date" id="sdate" value="dd-mm-yyyy">
-                            <span>|</span>
-                            <input type="time" id="stime" value="00:00">
-                        </div>
+						<div class="wrap-input100 validate-input m-b-23" data-validate="Required" >
+								<table  class="table table-responsive" style="width:100%">
+								<tbody>
+									<tr>
+
+										<td>
+											<div class="input-group but1 p-t-5">
+												<select class="custom-select" name="day" required>
+												  <option selected="selected" disabled value="0">Day</option>
+													<option value="MONDAY">MONDAY</option>
+													<option value="TUESDAY">TUESDAY</option>
+													<option value="WEDNESDAY">WEDNESDAY</option>
+													<option value="THURSDAY">THURSDAY</option>
+													<option value="FRIDAY">FRIDAY</option>
+													<option value="SATURDAY">SATURDAY</option>
+													<option value="SUNDAY">SUNDAY</option>
+												</select>
+											</div>
+										</td>
+
+										<td>
+											   <div class="input-group but1 p-t-5">
+												<select class="custom-select" name="time" required>
+												  <option selected="selected" disabled value="0">Time</option>
+													<option value="6:30 - 8:00">6:30-8:00 AM</option>
+													<option value="8:15 - 9:45">8:15-9:45 AM</option>
+													<option value="10:00 - 11:30">10:00-11:30 AM</option>
+													<option value="11:45 - 1:15">11:45-1:15 PM</option>
+													<option value="2:00 - 3:30">2:00-3:30 PM</option>
+													<option value="3:45 - 5:15">3:45-5:15 PM</option>
+													<option value="5:30 - 7:00">5:30-7:00 PM</option>
+												</select>
+											</div>
+										</td>
+										<td>
+												<div class="input-group but1 p-t-5" >
+												<select class="custom-select" name="reason" required>
+												  <option selected="selected" disabled value="0">Reason</option>
+													<option value="Unwell">Unwell</option>
+													<option value="Personal">Personal</option>
+													<option value="Holiday">Holiday</option>
+													<option value="Travelling">Travelling</option>
+													<option value="Other">Event to attend</option>
+													<option value="Other">Other</option>
+
+
+												</select>
+											</div>
+										</td>
+										<td>
+											<div class="container-login100-form-btn">
+												<div class="wrap-login100-form-btn">
+												  <div class="login100-form-bgbtn"></div>
+												  <button class="login100-form-btn" id="search" name="search" >
+												   Search
+												  </button>
+												</div>
+											  </div>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
 					</div>
-
-                  <div class="wrap-input100 validate-input m-b-23" data-validate="Required">
-						<span class="label-input100">Rescheduled Date & Time</span>
-						<div class="datetimepicker p-l-50" >
-                            <input type="date" id="rdate" value="dd-mm-yyyy">
-                            <span>|</span>
-                            <input type="time" id="rtime" value="00:00">
-                        </div>
-					</div>
-
-
-
-
-                  <div class="wrap-input100 validate-input m-b-23" data-validate = "Reason is required">
-						<span class="label-input100">Reason</span>
-						<input class="input100" type="text" id="reason" placeholder="Type your reason">
-						<span class="focus-input100" data-symbol="&#xf10c;"></span>
-					</div>
-
-
-
-
-
-
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" data-toggle="modal" data-target="#submit" >
-								Submit
-							</button>
-						</div>
-					</div>
-
-
-
-
-
 				</form>
+			<form class="login100-form validate-form" method="POST">
+				{% csrf_token %}
+			<div class="card_body">
+				<div class="overflow-x">
+					<table id="mark_atten" class="table table-hover table-bordered table-striped table cust-datatable dataTable no-footer" style="width:100%">
+					  <thead>
+						<tr>
+						  <th data-sortable="true" class="text-center">S.No</th>
+						  <th data-sortable="true" class="text-center">Day</th>
+						  <th data-sortable="true" class="text-center">Time</th>
+							 <th data-sortable="true" class="text-center">Confirm</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<!--<tr>
+						  <td class="text-center">1</td>
+						  <td class="text-center">Kirthic</td>
+						  <td class="text-center"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1"></td>
+						</tr>-->
+						 {% for i in data%}
+					  <tr>
+
+						   <td class="text-center">{{ forloop.counter }}</td>
+						  <td class="text-center">{{ i.day}}</td>
+						  <td class="text-center">{{ i.time}}</td>
+						  <td class="text-center"><input class="chb" type="checkbox" value="{{i}}" name="id[]" ></td>
+
+						{% endfor %}
+					  </tbody>
+					</table>
+				</div>
 			</div>
-		</div>
-	</div>
+          <div class="container-login100-form-btn p-t-20">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <button class="login100-form-btn" data-toggle="modal"  id="mark" name="mark">
+                Reschedule
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<!--Data Table End-->
+
 
 	<!-- Footer -->
 <footer class="page-footer font-small bg-light">
@@ -201,7 +275,17 @@
 		<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
 	<!--===============================================================================================-->
 		<script src="{% static 'js/main.js' %}"></script>
+	<script src="{% static 'js/checkbox.js' %}"></script>
 
+  <script src="{% static 'js/mark_attendt.js' %}"></script>
+<!--===============================================================================================-->
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<!--===============================================================================================-->
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
 </body>
 </html>

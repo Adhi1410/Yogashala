@@ -2,9 +2,10 @@
 {% load static %}
 <html lang="en">
 <head>
-	<title>Yogashala - Login</title>
+	<title>Yogashaala - Mark Attendance</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="{% static 'images/icons/yoga.ico'%} "/>
 <!--===============================================================================================-->
@@ -27,13 +28,14 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css'%} ">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%} ">
 <!--===============================================================================================-->
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<!--header start-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
 		<a class="navbar-brand" href="">
 			<img src="{% static 'images/icons/symbol.jpeg'%} " width="30" height="30" class="d-inline-block align-top" alt="">
 			Yogashaala</a>
@@ -51,7 +53,15 @@
 			</li>
 
 			<li class="nav-item">
-			  <a class="nav-link" href="/reschedule/">Resheduling Request</a>
+			  <a class="nav-link" href="/reschedule/">Rescheduling Request</a>
+			</li>
+
+            <li class="nav-item">
+			  <a class="nav-link" href="/reschedule_check/">Reschedule Check</a>
+			</li>
+
+			  <li class="nav-item">
+			  <a class="nav-link" href="/view_profile/">View Student Profile</a>
 			</li>
 
 			<li class="nav-item dropdown">
@@ -73,89 +83,91 @@
 		    </ul>
 		</div>
 	</nav>
+<!--Header end-->
 
-
-
-
-
+<!--Data Table Start-->
+	<div class="limiter">
 		<div class="container-login100" style="background-image: url({% static 'images/bg-01.jpeg' %});">
 			<div class="wrap-login1001 p-l-55 p-r-55 p-t-65 p-b-54">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST">
 					{% csrf_token %}
 					<span class="login100-form-title p-b-49">
 						View Attendance
 					</span>
 
-						<div class="text-right p-t-8 ">
-					<div align="center" class="p-b-10"><span> <b> Date & Time </b></span></div>
-					<div class="container-login100-form-btn p-b-10">
-						<input type="date" id="sdate" value="dd-mm-yyyy" data-toggle="button">
-						<input type="time" id="stime" value="00:00">
-					  <div class="container-login100-form-btn-append p-l-10">
-						<button class="btn btn-outline-dark" type="button">Search</button>
-					  </div>
+						<div class="wrap-input100 validate-input m-b-23" data-validate="Required" >
+								<table  class="table table table-responsive" style="width:100%">
+								<tbody>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+
+										<td><div class="container-login100-form-btn p-t-14">
+												<input type="date" id="sdate" name="sdate" value="dd-mm-yyyy" >
+										</div>
+										</td>
+
+
+										<td></td>
+										<td>
+											<div class="container-login100-form-btn">
+												<div class="wrap-login100-form-btn">
+												  <div class="login100-form-bgbtn"></div>
+												  <button class="login100-form-btn" id="search" name="search" >
+												   Search
+												  </button>
+												</div>
+											  </div>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
 					</div>
 
-                    <div class="row">
-                        <div class="col-md-12 main-datatable">
-                            <div class="card_body">
-                                <div class="row d-flex">
-                                    <div class="col-sm-4 createSegment"></div>
-                                    <div class="col-sm-8 add_flex">
-                                        <div class="form-group searchInput">
-                                            <label for="email">Search </label>
-                                            <input type="search" class="form-control" id="filterbox" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="overflow-x">
-                                    <table style="width:100%" id="filtertable" class=" table table-hover table cust-datatable dataTable no-footer">
-                                        <thead>
-                                            <tr>
-                                                <th style="min-width: 50px;">S.No</th>
-                                                <th style="min-width: 100px;">Name</th>
-                                                <th style="min-width: 100px;">Date</th>
-                                                <th style="min-width: 100px;">Time</th>
-                                                <th style="min-width: 100px;">Present</th>
 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Kirthic Vishnu</td>
-                                                <td>18-oct-2021</td>
-                                                <td>12:30-2:00 PM</td>
-												<td>Present</td>
+			<div class="card_body">
+				<div class="overflow-x">
+					<table id="mark_atten" class="table table-hover table-bordered table-striped table cust-datatable dataTable no-footer" style="width:100%">
+					  <thead>
+						<tr>
+						  <th data-sortable="true" class="text-center">S.No</th>
+						  <th data-sortable="true" class="text-center">Name</th>
+						  <th data-sortable="true" class="text-center">Time</th>
+						  <th data-sortable="true" class="text-center">Course Name</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<!--<tr>
+						  <td class="text-center">1</td>
+						  <td class="text-center">Kirthic</td>
+						  <td class="text-center"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1"></td>
+						</tr>-->
+						 {% for i in data%}
+					  <tr>
 
+						  <td class="text-center">{{ forloop.counter }}</td>
+						  <td class="text-center">{{ i.username.first_name}}</td>
+						  <td class="text-center">{{ i.s_time}}</td>
+						  <td class="text-center">{{ i.course_id.name}}</td>
+						</tr>
+						{% endfor %}
+					  </tbody>
+					</table>
+				</div>
+			</div>
 
-                                            </tr>
-
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Adarsh</td>
-                                                <td>22-oct-2021</td>
-                                                <td>5:30-7:00 AM</td>
-                                                <td>Absent</td>
-                                            </tr>
-
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-							<div class="container-login100-form-btn  p-t-25" >
-                        <a class="exc" href="">
-                              <i class="fa fa-file-excel-o fa-lg  black-text text-center black-text fa-2x mr-3 ml-3" > </i>
-                            </a>
-                      </div>
-                </form>
-            </div>
-        </div>
+        </form>
+      </div>
     </div>
+  </div>
+<!--Data Table End-->
 
+
+	<div id="dropDownSelect1"></div>
 	<!-- Footer -->
 <footer class="page-footer font-small bg-light">
 
@@ -203,11 +215,12 @@
 
 	<!-- Copyright -->
 	<div class="footer-copyright text-center black-text py-3">© Copyright 2021 :
-	  <a href="" class="black-text"> Yoga Shaala - All rights reserved. </a>
+	  <a href="#" class="black-text"> Yoga Shaala - All rights reserved. </a>
 	</div>
 	<!-- Copyright -->
 
   </footer>
+
 
 <!--===============================================================================================-->
 	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
@@ -225,10 +238,16 @@
 		<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
 	<!--===============================================================================================-->
 		<script src="{% static 'js/main.js' %}"></script>
-		<script src="{% static 'js/dtable3.js' %}"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    	<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
+  <script src="{% static 'js/mark_attendt.js' %}"></script>
+<!--===============================================================================================-->
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<!--===============================================================================================-->
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
 </body>
 </html>

@@ -64,6 +64,17 @@
               <a class="dropdown-item" href="/add_course/">Course</a>
             </div>
         </li>
+
+		  <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Report
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/admin_attendance/">Attendance</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/cash/">Cash</a>
+            </div>
+        </li>
       </ul>
 
       <ul class="navbar-nav right hide-on-med-and-down">
@@ -87,94 +98,102 @@
                     <div class="card">
                         <div class="card-body" style="height: 520px;overflow-y: auto;overflow-x: auto;">
 							<table class="table table-responsive table table-striped table table-bordered">
-                              <thead>
+                              <thead style="text-align:center;">
                                 <tr >
-									    <th scope="col">TIMINGS</th>
-                                        <th scope="col">6:30-8:00 AM</th>
-                                        <th scope="col">8:15-9:45 AM</th>
-                                        <th scope="col">10:00-11:30 AM</th>
-                                        <th scope="col">11:45-1:15 PM</th>
-                                        <th scope="col">2:00-3:30 PM</th>
-										<th scope="col">3:45-5:15 PM</th>
-										<th scope="col">5:30-7:00 PM</th>
+									    <th scope="col" style="text-align:center;">TIMINGS</th>
+                                        <th scope="col" style="text-align:center;">6:30-8:00 AM</th>
+                                        <th scope="col" style="text-align:center;">8:15-9:45 AM</th>
+                                        <th scope="col" style="text-align:center;">10:00-11:30 AM</th>
+                                        <th scope="col" style="text-align:center;">11:45-1:15 PM</th>
+                                        <th scope="col" style="text-align:center;">2:00-3:30 PM</th>
+										<th scope="col" style="text-align:center;">3:45-5:15 PM</th>
+										<th scope="col" style="text-align:center;">5:30-7:00 PM</th>
                                 </tr>
                                 </thead>
                                 <tbody class="tci">
                                     <tr>
-                                      <th scope="row">MONDAY</th>
-                                      <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogamc1" class="btn btn-link cl">Class 1</a></td>
-                                      <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogamc2" class="btn btn-link cl">Class 2</a></td>
-                                      <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogamc3" class="btn btn-link cl">Class 3</a></td>
-                                      <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogamc4" class="btn btn-link cl">Class 4</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogamc5" class="btn btn-link cl">Class 5</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogamc6" class="btn btn-link cl">Class 6</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogamc7" class="btn btn-link cl">Class 7</a></td>
+                                      <th scope="row" style="text-align:center;">MONDAY</th>
+										{% for i in mo %}
+                                      <td><a type="button"
+											 href={%if i.course_id.name == free %}
+											 {{def}}
+											 {% else %}
+											  {{i.class_link}}
+											 {% endif %}
+											 class="btn btn-link cl">{{i.course_id.name}}</a></td>
+                                      	{% endfor %}
                                     </tr>
 
 									<tr>
-									  <th scope="row">TUESDAY</th>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogatuc1" class="btn btn-link cl">Class 1</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogatuc2" class="btn btn-link cl">Class 2</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogatuc3" class="btn btn-link cl">Class 3</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogatuc4" class="btn btn-link cl">Class 4</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogatuc5" class="btn btn-link cl">Class 5</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogatuc6" class="btn btn-link cl">Class 6</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogatuc7" class="btn btn-link cl">Class 7</a></td>
+									  <th scope="row" style="text-align:center;">TUESDAY</th>
+									  {% for i in tu %}
+<td><a type="button"
+											 href={%if i.course_id.name == free %}
+											 {{def}}
+											 {% else %}
+											  {{i.class_link}}
+											 {% endif %}
+											 class="btn btn-link cl">{{i.course_id.name}}</a></td>                                      	{% endfor %}
 									</tr>
 
 									<tr>
-									  <th scope="row">WEDNESDAY</th>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogawc1" class="btn btn-link cl">Class 1</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogawc2" class="btn btn-link cl">Class 2</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogawc3" class="btn btn-link cl">Class 3</a></td>
-								      <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogawc4" class="btn btn-link cl">Class 4</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogawc5" class="btn btn-link cl">Class 5</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogawc6" class="btn btn-link cl">Class 6</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogawc7" class="btn btn-link cl">Class 7</a></td>
+									  <th scope="row" style="text-align:center;">WEDNESDAY</th>
+									  {% for i in wed %}
+<td><a type="button"
+											 href={%if i.course_id.name == free %}
+											 {{def}}
+											 {% else %}
+											  {{i.class_link}}
+											 {% endif %}
+											 class="btn btn-link cl">{{i.course_id.name}}</a></td>                                      	{% endfor %}
 									</tr>
 
 									<tr>
-									  <th scope="row">THURSDAY</th>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathc1" class="btn btn-link cl">Class 1</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathc2" class="btn btn-link cl">Class 2</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathc3" class="btn btn-link cl">Class 3</a></td>
-								      <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathc4" class="btn btn-link cl">Class 4</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathc5" class="btn btn-link cl">Class 5</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathc6" class="btn btn-link cl">Class 6</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathc7" class="btn btn-link cl">Class 7</a></td>
+									  <th scope="row" style="text-align:center;">THURSDAY</th>
+									  {% for i in th %}
+<td><a type="button"
+											 href={%if i.course_id.name == free %}
+											 {{def}}
+											 {% else %}
+											  {{i.class_link}}
+											 {% endif %}
+											 class="btn btn-link cl">{{i.course_id.name}}</a></td>                                      	{% endfor %}
 									</tr>
 
 									<tr>
-									  <th scope="row">FRIDAY</th>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathfr1" class="btn btn-link cl">Class 1</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathfr2" class="btn btn-link cl">Class 2</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathfr3" class="btn btn-link cl">Class 3</a></td>
-								      <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathfr4" class="btn btn-link cl">Class 4</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathfr5" class="btn btn-link cl">Class 5</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathfr6" class="btn btn-link cl">Class 6</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathfr7" class="btn btn-link cl">Class 7</a></td>
+									  <th scope="row" style="text-align:center;">FRIDAY</th>
+									  {% for i in fri %}
+<td><a type="button"
+											 href={%if i.course_id.name == free %}
+											 {{def}}
+											 {% else %}
+											  {{i.class_link}}
+											 {% endif %}
+											 class="btn btn-link cl">{{i.course_id.name}}</a></td>                                      	{% endfor %}
 									</tr>
 
 									<tr>
-									  <th scope="row">SATURDAY</th>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathst1" class="btn btn-link cl">Class 1</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathst2" class="btn btn-link cl">Class 2</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathst3" class="btn btn-link cl">Class 3</a></td>
-								      <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathst4" class="btn btn-link cl">Class 4</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathst5" class="btn btn-link cl">Class 5</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathst6" class="btn btn-link cl">Class 6</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathst7" class="btn btn-link cl">Class 7</a></td>
+									  <th scope="row" style="text-align:center;">SATURDAY</th>
+									  {% for i in sat %}
+<td><a type="button"
+											 href={%if i.course_id.name == free %}
+											 {{def}}
+											 {% else %}
+											  {{i.class_link}}
+											 {% endif %}
+											 class="btn btn-link cl">{{i.course_id.name}}</a></td>                                      	{% endfor %}
 									</tr>
 
 									<tr>
-									  <th scope="row">SUNDAY</th>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathsu1" class="btn btn-link cl">Class 1</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathsu2" class="btn btn-link cl">Class 2</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathsu3" class="btn btn-link cl">Class 3</a></td>
-								      <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathsu4" class="btn btn-link cl">Class 4</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathsu5" class="btn btn-link cl">Class 5</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathsu6" class="btn btn-link cl">Class 6</a></td>
-									  <td><a type="button" href="https://psg-meet-app.herokuapp.com/action.html?meetingID=yogathsu7" class="btn btn-link cl">Class 7</a></td>
+									  <th scope="row" style="text-align:center;">SUNDAY</th>
+									  {% for i in sun %}
+<td><a type="button"
+											 href={%if i.course_id.name == free %}
+											 {{def}}
+											 {% else %}
+											  {{i.class_link}}
+											 {% endif %}
+											 class="btn btn-link cl">{{i.course_id.name}}</a></td>                                      	{% endfor %}
 									</tr>
 
                                 </tbody>

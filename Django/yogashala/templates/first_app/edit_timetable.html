@@ -65,6 +65,16 @@
               <a class="dropdown-item" href="/add_course/">Course</a>
             </div>
         </li>
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Report
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/admin_attendance/">Attendance</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/cash/">Cash</a>
+            </div>
+        </li>
       </ul>
 
       <ul class="navbar-nav right hide-on-med-and-down">
@@ -80,7 +90,7 @@
 	 <div class="limiter">
 		<div class="container-login100" style="background-image: url({% static 'images/bg-01.jpeg' %});">
 			<div class="wrap-login1001 p-l-55 p-r-55 p-t-35 p-b-35">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST">
                     {% csrf_token %}
 					<span class="login100-form-title p-b-20">
 						Edit Time Table
@@ -103,860 +113,136 @@
                                 <tbody >
                                     <tr>
                                       <th scope="row">MONDAY</th>
+                                        {% for i in mo %}
                                       <td>
                                         <div class="input-group but1">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01"></label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect01">
-                                              <option selected>Class 1</option>
-                                              <option value="2">Class 2</option>
-                                              <option value="3">Class 3</option>
-                                              <option value="4">Class 4</option>
-                                              <option value="5">Class 5</option>
-                                              <option value="6">Class 6</option>
-                                              <option value="7">Class 7</option>
+
+                                            <select class="custom-select" name="{{i.time}}{{i.day}}">
+                                              <option selected="selected" disabled value="{{i.course_id}}">{{i.course_id.name}}</option>
+
+                                              {% for j in data %}
+                                                <option value="{{j.id}}">{{j.name}}</option>
+                                                {% endfor %}
                                             </select>
                                         </div>
+                                          {% endfor %}
                                       </td>
 
-                                      <td>
-                                        <div class="input-group but1">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect02"></label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect02">
-                                              <option selected>Class 2</option>
-                                              <option value="1">Class 1</option>
-                                              <option value="3">Class 3</option>
-                                              <option value="4">Class 4</option>
-                                              <option value="5">Class 5</option>
-                                              <option value="6">Class 6</option>
-                                              <option value="7">Class 7</option>
-                                            </select>
-                                        </div>
-                                      </td>
 
-                                      <td>
-                                        <div class="input-group but1">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect03"></label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect03">
-                                              <option selected>Class 3</option>
-                                              <option value="1">Class 1</option>
-                                              <option value="2">Class 2</option>
-                                              <option value="4">Class 4</option>
-                                              <option value="5">Class 5</option>
-                                              <option value="6">Class 6</option>
-                                              <option value="7">Class 7</option>
-                                            </select>
-                                        </div>
-                                      </td>
-
-                                      <td>
-                                        <div class="input-group but1">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect04"></label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect04">
-                                              <option selected>Class 4</option>
-                                              <option value="1">Class 1</option>
-                                              <option value="2">Class 2</option>
-                                              <option value="3">Class 3</option>
-                                              <option value="5">Class 5</option>
-                                              <option value="6">Class 6</option>
-                                              <option value="7">Class 7</option>
-                                            </select>
-                                        </div>
-                                      </td>
-
-									                    <td>
-                                        <div class="input-group but1">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect05"></label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect05">
-                                              <option selected>Class 5</option>
-                                              <option value="1">Class 1</option>
-                                              <option value="2">Class 2</option>
-                                              <option value="3">Class 3</option>
-                                              <option value="4">Class 4</option>
-                                              <option value="6">Class 6</option>
-                                              <option value="7">Class 7</option>
-                                            </select>
-                                        </div>
-                                      </td>
-
-									                    <td>
-                                        <div class="input-group but1">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect06"></label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect06">
-                                              <option selected>Class 6</option>
-                                              <option value="1">Class 1</option>
-                                              <option value="2">Class 2</option>
-                                              <option value="3">Class 3</option>
-                                              <option value="4">Class 4</option>
-                                              <option value="5">Class 5</option>
-                                              <option value="7">Class 7</option>
-                                            </select>
-                                        </div>
-                                      </td>
-
-									                    <td>
-                                        <div class="input-group but1">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect07"></label>
-                                            </div>
-                                            <select class="custom-select" id="inputGroupSelect07">
-                                              <option selected>Class 7</option>
-                                              <option value="1">Class 1</option>
-                                              <option value="2">Class 2</option>
-                                              <option value="3">Class 3</option>
-                                              <option value="4">Class 4</option>
-                                              <option value="5">Class 5</option>
-                                              <option value="6">Class 6</option>
-                                            </select>
-                                        </div>
-                                      </td>
                                     </tr>
 
-									                    <tr>
+                                    <tr>
                                         <th scope="row">TUESDAY</th>
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect08"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect08">
-                                                <option selected>Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                         {% for i in tu %}
+                                     <td>
+                                        <div class="input-group but1">
 
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect09"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect09">
-                                                <option selected>Class 2</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                            <select class="custom-select" name="{{i.time}}{{i.day}}">
+                                              <option selected="selected" disabled value="{{i.course_id}}">{{i.course_id.name}}</option>
 
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect10"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect10">
-                                                <option selected>Class 3</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                              {% for j in data %}
+                                                <option value="{{j.id}}">{{j.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                          {% endfor %}
+                                      </td>
 
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect11"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect11">
-                                                <option selected>Class 4</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
 
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect12"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect12">
-                                                <option selected>Class 5</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect13"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect13">
-                                                <option selected>Class 6</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect14"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect14">
-                                                <option selected>Class 7</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                              </select>
-                                          </div>
-                                        </td>
                                       </tr>
 
 
                                       <tr>
                                         <th scope="row">WEDNESDAY</th>
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect15"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect15">
-                                                <option selected>Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                         {% for i in wed %}
+                                      <td>
+                                        <div class="input-group but1">
 
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect16"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect16">
-                                                <option selected>Class 2</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                            <select class="custom-select" name="{{i.time}}{{i.day}}">
+                                              <option selected="selected" disabled value="{{i.course_id}}">{{i.course_id.name}}</option>
 
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect17"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect17">
-                                                <option selected>Class 3</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect18"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect18">
-                                                <option selected>Class 4</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect19"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect19">
-                                                <option selected>Class 5</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect20"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect20">
-                                                <option selected>Class 6</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect21"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect21">
-                                                <option selected>Class 7</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                              {% for j in data %}
+                                                <option value="{{j.id}}">{{j.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                          {% endfor %}
+                                      </td>
                                       </tr>
 
 
                                       <tr>
                                         <th scope="row">THURSDAY</th>
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect22"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect22">
-                                                <option selected>Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                         {% for i in th %}
+                                      <td>
+                                        <div class="input-group but1">
 
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect23"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect23">
-                                                <option selected>Class 2</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                            <select class="custom-select" name="{{i.time}}{{i.day}}">
+                                              <option selected="selected" disabled value="{{i.course_id}}">{{i.course_id.name}}</option>
 
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect24"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect24">
-                                                <option selected>Class 3</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect25"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect25">
-                                                <option selected>Class 4</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect26"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect26">
-                                                <option selected>Class 5</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect27"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect27">
-                                                <option selected>Class 6</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect28"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect28">
-                                                <option selected>Class 7</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                              {% for j in data %}
+                                                <option value="{{j.id}}">{{j.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                          {% endfor %}
+                                      </td>
                                       </tr>
 
 
                                       <tr>
                                         <th scope="row">FRIDAY</th>
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect29"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect29">
-                                                <option selected>Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                         {% for i in fri %}
+                                      <td>
+                                        <div class="input-group but1">
 
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect30"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect30">
-                                                <option selected>Class 2</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                            <select class="custom-select" name="{{i.time}}{{i.day}}">
+                                              <option selected="selected" disabled value="{{i.course_id}}">{{i.course_id.name}}</option>
 
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect31"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect31">
-                                                <option selected>Class 3</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect32"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect32">
-                                                <option selected>Class 4</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect33"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect33">
-                                                <option selected>Class 5</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect34"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect34">
-                                                <option selected>Class 6</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect35"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect35">
-                                                <option selected>Class 7</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                              {% for j in data %}
+                                                <option value="{{j.id}}">{{j.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                          {% endfor %}
+                                      </td>
                                       </tr>
 
 
                                       <tr>
                                         <th scope="row">SATURDAY</th>
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect36"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect36">
-                                                <option selected>Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                         {% for i in sat %}
+                                      <td>
+                                        <div class="input-group but1">
 
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect37"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect37">
-                                                <option selected>Class 2</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                            <select class="custom-select" name="{{i.time}}{{i.day}}">
+                                              <option selected="selected" disabled value="{{i.course_id}}">{{i.course_id.name}}</option>
 
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect38"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect38">
-                                                <option selected>Class 3</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect39"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect39">
-                                                <option selected>Class 4</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect40"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect40">
-                                                <option selected>Class 5</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect41"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect41">
-                                                <option selected>Class 6</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect42"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect42">
-                                                <option selected>Class 7</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                              {% for j in data %}
+                                                <option value="{{j.id}}">{{j.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                          {% endfor %}
+                                      </td>
                                       </tr>
 
                                       <tr>
                                         <th scope="row">SUNDAY</th>
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect43"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect43">
-                                                <option selected>Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                        {% for i in sun %}
+                                     <td>
+                                        <div class="input-group but1">
 
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect44"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect44">
-                                                <option selected>Class 2</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                            <select class="custom-select" name="{{i.time}}{{i.day}}">
+                                              <option selected="selected" disabled value="{{i.course_id}}">{{i.course_id.name}}</option>
 
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect45"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect45">
-                                                <option selected>Class 3</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect46"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect46">
-                                                <option selected>Class 4</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect47"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect47">
-                                                <option selected>Class 5</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="6">Class 6</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect48"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect48">
-                                                <option selected>Class 6</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="7">Class 7</option>
-                                              </select>
-                                          </div>
-                                        </td>
-
-                                        <td>
-                                          <div class="input-group but1">
-                                              <div class="input-group-prepend">
-                                                  <label class="input-group-text" for="inputGroupSelect49"></label>
-                                              </div>
-                                              <select class="custom-select" id="inputGroupSelect49">
-                                                <option selected>Class 7</option>
-                                                <option value="1">Class 1</option>
-                                                <option value="2">Class 2</option>
-                                                <option value="3">Class 3</option>
-                                                <option value="4">Class 4</option>
-                                                <option value="5">Class 5</option>
-                                                <option value="6">Class 6</option>
-                                              </select>
-                                          </div>
-                                        </td>
+                                              {% for j in data %}
+                                                <option value="{{j.id}}">{{j.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                          {% endfor %}
+                                      </td>
                                     </tr>
                                 </tbody>
                             </table>

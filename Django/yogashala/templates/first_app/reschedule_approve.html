@@ -27,15 +27,14 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-	<script src="{% static 'js/opt.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 
 </head>
 <body>
-	
-<!--header start-->	
+
+<!--header start-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
          <img src="{% static 'images/icons/symbol.jpeg' %}"  width="30" height="30" class="d-inline-block align-top" alt="">
@@ -68,6 +67,16 @@
               <a class="dropdown-item" href="/add_course/">Course</a>
             </div>
         </li>
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Report
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/admin_attendance/">Attendance</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/cash/">Cash</a>
+            </div>
+        </li>
       </ul>
 
       <ul class="navbar-nav right hide-on-med-and-down">
@@ -83,7 +92,7 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image:url({% static 'images/bg-01.jpeg' %});">
 			<div class="wrap-login1001 p-l-55 p-r-55 p-t-65 p-b-54">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST">
                     {% csrf_token %}
 					<span class="login100-form-title p-b-49">
 						Rescheduling Requests
@@ -102,7 +111,7 @@
                                     </div>
                                 </div>
                                 <div class="overflow-x">
-                                    <table style="width:100%" id="filtertable" class=" table table-hover table cust-datatable dataTable no-footer">
+                                    <table style="width:100%" id="filtertable" class=" table table-responsive table table-striped ">
                                         <thead>
                                             <tr>
                                                 <th style="min-width: 50px;">S.No</th>
@@ -112,301 +121,101 @@
                                                 <th style="min-width: 100px;">Reason</th>
                                                 <th style="min-width: 100px;">New Date</th>
                                                 <th style="min-width: 100px;">New Time</th>
-                                                <th style="min-width: 100px;">Status</th>
                                                 <th style="min-width: 100px;">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        {% for i in ls %}
                                             <tr>
-                                                <td>1</td>
-                                                <td>Kirthic Vishnu</td>
-                                                <td>18-oct-2021</td>
-                                                <td>12:30-2:00 PM</td>
-                                                <td><span class="label-input100"></span>
-                                                    <input class="input100" type="text" name="&#10;reason" placeholder="Rea" disabled>
-            
-                                                <td>25-oct-2021</td>
-                                                <td>12:30-2:00 PM</td>
-                                                <td><span class="mode mode_on">Approved</span></td>
+                                                <td>{{ forloop.counter }}</td>
+                                                <td>{{ i.username.first_name }}</td>
+                                                <td>{{ i.s_day }}</td>
+                                                <td>{{ i.s_time }}</td>
+                                                <td><span class="label-input100"></span>{{ i.reason }}</td>
+                                                <td>{{ i.r_day }}</td>
+                                                <td>{{ i.r_time }}</td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <a class="dropdown-toggle dropdown_icon" data-toggle="dropdown">
-                                                            <i class="fa fa-pencil-square-o"></i>
-                                                        </a>
-                                                        <ul class="dropdown-menu">
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Approve
-                                                                </a>
-                                                            </li>
-            
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Deny
-                                                                </a>
-                                                            </li>
-                                                        </ul>
+                                                            <select class="custom-select" name="{{i.id}}">
+                                                              <option selected="selected" disabled value="0">Pending</option>
+                                                                <option value="approve">Approve</option>
+                                                                <option value="deny">Deny</option>
+                                                            </select>
+
                                                     </div>
                                                 </td>
                                             </tr>
-            
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Adarsh</td>
-                                                <td>22-oct-2021</td>
-                                                <td>5:30-7:00 AM</td>
-                                                <td><span class="label-input100"></span>
-                                                    <input class="input100" type="text" name="reason" placeholder="Rea" disabled>
-            
-                                                <td>28-oct-2021</td>
-                                                <td>5:30-7:00 AM</td>
-                                                <td><span class="mode mode_off">Denied</span></td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <a class="dropdown-toggle dropdown_icon" data-toggle="dropdown">
-                                                            <i class="fa fa-pencil-square-o"></i>
-                                                        </a>
-                                                        <ul class="dropdown-menu">
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Approve
-                                                                </a>
-                                                            </li>
-            
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Deny
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-            
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Aditya Sriram</td>
-                                                <td>29-oct-2021</td>
-                                                <td>4:00-5:30 PM</td>
-                                                <td><span class="label-input100"></span>
-                                                    <input class="input100" type="text" name="reason" placeholder="Rea" disabled>
-            
-                                                <td>31-oct-2021</td>
-                                                <td>4:00-5:30 PM</td>
-                                                <td><span class="mode mode_off">Denied</span></td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <a class="dropdown-toggle dropdown_icon" data-toggle="dropdown">
-                                                            <i class="fa fa-pencil-square-o"></i>
-                                                        </a>
-                                                        <ul class="dropdown-menu">
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Approve
-                                                                </a>
-                                                            </li>
-            
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Deny
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-            
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Sandeep Don</td>
-                                                <td>1-nov-2021</td>
-                                                <td>11:00-12:30 PM</td>
-                                                <td><span class="label-input100"></span>
-                                                    <input class="input100" type="text" name="reason" placeholder="Rea" disabled>
-            
-                                                <td>10-nov-2021</td>
-                                                <td>11:00-12:30 PM</td>
-                                                <td><span class="mode mode_on">Approved</span></td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <a class="dropdown-toggle dropdown_icon" data-toggle="dropdown">
-                                                            <i class="fa fa-pencil-square-o"></i>
-                                                        </a>
-                                                        <ul class="dropdown-menu">
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Approve
-                                                                </a>
-                                                            </li>
-            
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Deny
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-            
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Kumeresh</td>
-                                                <td>5-nov-2021</td>
-                                                <td>3:00-4:30 PM</td>
-                                                <td><span class="label-input100"></span>
-                                                    <input class="input100" type="text" name="reason" placeholder="Rea" disabled>
-            
-                                                <td>15-nov-2021</td>
-                                                <td>3:00-4:30 PM</td>
-                                                <td><span class="mode mode_on">Approved</span></td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <a class="dropdown-toggle dropdown_icon" data-toggle="dropdown">
-                                                            <i class="fa fa-pencil-square-o"></i>
-                                                        </a>
-                                                        <ul class="dropdown-menu">
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Approve
-                                                                </a>
-                                                            </li>
-            
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Deny
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-            
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Mridula</td>
-                                                <td>18-nov-2021</td>
-                                                <td>7:00-8:30 AM</td>
-                                                <td><span class="label-input100"></span>
-                                                    <input class="input100" type="text" name="reason" placeholder="Rea" disabled>
-            
-                                                <td>20-nov-2021</td>
-                                                <td>7:00-8:30 AM</td>
-                                                <td><span class="mode mode_off">Denied</span></td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <a class="dropdown-toggle dropdown_icon" data-toggle="dropdown">
-                                                            <i class="fa fa-pencil-square-o"></i>
-                                                        </a>
-                                                        <ul class="dropdown-menu">
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Approve
-                                                                </a>
-                                                            </li>
-            
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Deny
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-            
-                                            <tr>
-                                                <td>7</td>
-                                                <td>Swathi</td>
-                                                <td>21-nov-2021</td>
-                                                <td>6:00-7:30 AM</td>
-                                                <td><span class="label-input100"></span>
-                                                    <input class="input100" type="text" name="reason" placeholder="Rea" disabled>
-            
-                                                <td>27-nov-2021</td>
-                                                <td>6:00-7:30 AM</td>
-                                                <td><span class="mode mode_on">Approved</span></td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <a class="dropdown-toggle dropdown_icon" data-toggle="dropdown">
-                                                            <i class="fa fa-pencil-square-o"></i>
-                                                        </a>
-                                                        <ul class="dropdown-menu">
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Approve
-                                                                </a>
-                                                            </li>
-            
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Deny
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-            
-                                            <tr>
-                                                <td>8</td>
-                                                <td>Random</td>
-                                                <td>27-nov-2021</td>
-                                                <td>2:30-4:00 PM</td>
-                                                <td><span class="label-input100"></span>
-                                                    <input class="input100" type="text" name="reason" placeholder="Rea" disabled>
-            
-                                                <td>30-nov-2021</td>
-                                                <td>2:30-4:00 PM</td>
-                                                <td><span class="mode mode_off">Denied</span></td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <a class="dropdown-toggle dropdown_icon" data-toggle="dropdown">
-                                                            <i class="fa fa-pencil-square-o"></i>
-                                                        </a>
-                                                        <ul class="dropdown-menu">
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Approve
-                                                                </a>
-                                                            </li>
-            
-                                                            <li>
-                                                                <a href="#" target="_blank">
-                                                                    Deny
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                        {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Approve/Deny
+							</button>
+						</div>
+					</div>
                 </form>
             </div>
         </div>
     </div>
 <!--Data Table End-->
 
+<div class="limiter">
+		<div class="container-login100" style="background-image:  url({% static 'images/bg-01.jpeg' %});">
+			<div class="wrap-login1001 p-l-55 p-r-55 p-t-65 p-b-54">
+					<div id="container"  class="limiter p-t-25" style="width: 75%;">
+						<span class="login100-form-title p-b-49">
+						Rescheduling Analysis
+					</span>
+				<canvas id="pie-chart"></canvas>
+		    </div>
+		<script>
+
+			var config = {
+			  type: 'doughnut',
+			  data: {
+				datasets: [{
+				  data: {{ data|safe }},
+				  backgroundColor: {{col | safe}},
+				  label: 'Population'
+				}],
+				labels: {{ labels|safe }}
+			  },
+			  options: {
+				responsive: true
+			  }
+			};
+			window.onload = function() {
+			  var ctx = document.getElementById('pie-chart').getContext('2d');
+			  window.myPie = new Chart(ctx, config);
+			};
+
+  	</script>
+      </div>
+    </div>
+  </div>
 
 	<div id="dropDownSelect1"></div>
 	<!-- Footer -->
 <footer class="page-footer font-small bg-light">
 
 	<!-- Footer Elements -->
-  <div class="container  text-center black-text py-3"> 
-  
+  <div class="container  text-center black-text py-3">
+
 	  <!-- Grid row-->
 	  <div class="row">
-  
+
 		<!-- Grid column -->
 		<div class="col-md-12 justify-content: space-around">
 		  <div class="flex-center">
-  
+
 			<!-- Facebook -->
 			<a class="fb-ic" href="https://www.facebook.com/yogashaala">
 			  <i class="fa fa-facebook-f fa-lg  text-center black-text  fa-2x mr-3 ml-3" > </i>
@@ -415,39 +224,39 @@
 			<a class="ins-ic" href="https://www.instagram.com/yogashaala">
 			  <i class="fa fa-instagram fa-lg text-center black-text fa-2x mr-3 ml-3" > </i>
 			</a>
-			
+
 			<!-- Google +-->
 			<a class="gplus-ic" href="mailto:info@yogashaala.net?cc=marksim@yogashaala.net&subject=Website%20Contact&body=I%20would%20like%20to%20more%20about%20the%20classes.%20This%20is%20my%20contact%20number%20and%20email%20address.">
 			  <i class="fa fa-google fa-lg  text-center black-text  fa-2x mr-3 ml-3" > </i>
 			</a>
-			
+
 			<!--whatsapp -->
 			<a class="wh-ic" href="https://wa.me/96895753154?text=Please%20write%20your%20name%2C%20mobile%20and%20email%20and%20the%20nature%20of%20your%20enquiry.">
 			  <i class="fa fa-whatsapp fa-lg  black-text text-center black-text fa-2x mr-3 ml-3" > </i>
 			</a>
-			
-		   
+
+
 		  </div>
-		  
+
 		</div>
 		<!-- Grid column -->
-  
+
 	  </div>
 	  <!-- Grid row-->
 	  <!-- Grid row-->
-  
+
 	</div>
 	<!-- Footer Elements -->
-  
+
 	<!-- Copyright -->
 	<div class="footer-copyright text-center black-text py-3">© Copyright 2021 :
 	  <a href="#" class="black-text"> Yoga Shaala - All rights reserved. </a>
 	</div>
 	<!-- Copyright -->
-  
+
   </footer>
-  
-	
+
+
 <!--===============================================================================================-->
 		<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
 	<!--===============================================================================================-->
@@ -465,10 +274,9 @@
 	<!--===============================================================================================-->
 		<script src="{% static 'js/main.js' %}"></script>
         <script src="{% static 'js/dtable.js' %}"></script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-      
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 
 </body>
 </html>

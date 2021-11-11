@@ -1176,9 +1176,9 @@ ul.packages li i{
   background-color: #8b9096;
 }
 
-/*.mode_process{
+.mode_process{
   background-color: #ff8000;
-}*/
+}
 
 .mode_done{
   background-color: #03a9f3;
@@ -1232,3 +1232,4 @@ ul.packages li i{
   color: #9b59b6;
   outline: none;
 }
+

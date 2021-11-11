@@ -9,7 +9,6 @@ urlpatterns=[
     path('indexU/',views.indexU,name='indexU'),
     path('indexH/',views.indexH,name='indexH'),
     path('login/',views.login_view,name='login'),
-    path('signup/',views.signup,name='signup'),
     path('myprofile/',views.myprofile,name='myprofile'),
     path('logout/',views.logoutview,name='logout'),
     path('TeacherHome/',views.TeacherHome,name='TeacherHome'),
@@ -26,5 +25,9 @@ urlpatterns=[
     path('add_student/',views.add_student,name='add_student'),
     path('add_teacher/',views.add_teacher,name='add_teacher'),
     path('edit_timetable/',views.edit_timetable,name='edit_timetable'),
+    path('reschedule_check/',views.reschedule_check,name='reschedule_check'),
+    path('admin_attendance/',views.admin_attendance,name='admin_attendance'),
+    path('cash/',views.cash,name='cash'),
+    path('view_profile/',views.view_profile,name='view_profile'),
 ]
 

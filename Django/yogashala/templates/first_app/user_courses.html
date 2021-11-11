@@ -80,68 +80,48 @@
 	  </nav>
 
 	<!--Data Table Start-->
+	<!--Data Table Start-->
 	<div class="limiter">
-		<div class="container-login100" style="background-image:url({% static 'images/bg-01.jpeg' %});">
+		<div class="container-login100" style="background-image: url({% static 'images/bg-01.jpeg' %});">
 			<div class="wrap-login1001 p-l-55 p-r-55 p-t-65 p-b-54">
 				<form class="login100-form validate-form">
 					{% csrf_token %}
 					<span class="login100-form-title p-b-49">
-						My Course
+						My Courses
 					</span>
 
-                    <div class="row">
-                        <div class="col-md-12 main-datatable">
-                            <div class="card_body">
-                                <div class="row d-flex">
-                                    <div class="col-sm-4 createSegment"></div>
-                                    <div class="col-sm-8 add_flex">
-                                        <div class="form-group searchInput">
-                                            <label for="email">Search </label>
-                                            <input type="search" class="form-control" id="filterbox" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="overflow-x">
-                                    <table style="width:100%" id="filtertable" class=" table table-hover table cust-datatable dataTable no-footer">
-                                        <thead>
-                                            <tr>
-                                                <th style="min-width: 50px;">S.No</th>
-                                                <th style="min-width: 100px;">Course Name</th>
-                                                <th style="min-width: 100px;">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Kirthic Vishnu</td>
-												<td><span class="mode mode_on">Active</span></td>
 
-                                            </tr>
+			<div class="card_body">
+				<div class="overflow-x">
+					<table id="mark_atten" class="table table-hover table-bordered table-striped table cust-datatable dataTable no-footer" style="width:100%">
+					  <thead>
+						<tr>
+						  <th data-sortable="true" class="text-center">S.No</th>
+						  <th data-sortable="true" class="text-center">Course Name</th>
+						  <th data-sortable="true" class="text-center">Classes left</th>
+						  <th data-sortable="true" class="text-center">Status</th>
+						</tr>
+					  </thead>
+					  <tbody>
+					  {%for i in trans%}
+						<tr>
+						  <td class="text-center">{{ forloop.counter }}</td>
+						  <td class="text-center">{{i.course_id.name}}</td>
+						  <td class="text-center">{{i.classes_left}}</td>
+						  <td><span class="mode mode_on">Active</span></td>
+						</tr>
+					  {% endfor %}
 
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Ki</td>
-												<td><span class="mode mode_on">Active</span></td>
+					  </tbody>
+					</table>
+				</div>
+			</div>
 
-                                            </tr>
-
-											<tr>
-                                                <td>3</td>
-                                                <td>Vishnu</td>
-												<td><span class="mode mode_off">Expired</span></td>
-
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+        </form>
+      </div>
     </div>
-<!--Data Table End-->
+  </div>
+
 
 	<!-- Footer -->
 <footer class="page-footer font-small bg-light">
@@ -212,11 +192,14 @@
 		<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
 	<!--===============================================================================================-->
 		<script src="{% static 'js/main.js' %}"></script>
-		<script src="{% static 'js/coursestable.js' %}"></script>
-	<!--===============================================================================================-->
+		 <script src="{% static 'js/mark_attendt.js' %}"></script>
+<!--===============================================================================================-->
+	  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<!--===============================================================================================-->
 
-	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
 </body>
 </html>
