@@ -63,7 +63,7 @@ add_student.html page displays the student adding option to the admin. Using thi
 add_teacher.html page offers the admin the facility to add teacher accounts. While creating the teacher's account, the courses the respective teachers will be responsible for will also be mentioned priorly.
 
 <h3>17.)add_course.html</h3>
-add_cours.html page shows the course adding feature of the web application.
+add_course.html page shows the course adding feature of the web application.
 
 <h3>18.)admin_attendance.html</h3>
 admin_attendance.html page gives the attendance of the teachers for their courses.
