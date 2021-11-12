@@ -22,7 +22,7 @@ Consists of all files and folders with regards to the website.
 <h4>first_app Folder:</h4>
 Contains all the database, tables, and html pages.
 <h5>templates Folder:</h5>
-Contains all the html pages of the website<r><br>
+Contains all the html pages of the website<br><br>
 
 
 
@@ -63,6 +63,18 @@ add_course.html - add_course.html page shows the course adding feature of the we
 admin_attendance.html - admin_attendance.html page gives the attendance of the teachers for their courses.
 
 cash.html - cash.html page gives the admin a detailed analysis of the cash flow for all courses. It also provides insight on which courses are preferred over the others.
+
+<h5>models.py:</h5>
+It is the data access layer. It contains everything about the data, i.e., how to access it, how to validate it, its behaviors and the relationships between the data.
+
+<h5>yogashala's settings.py:</h5>
+As the name indicates it contains all the website settings. In this file, we register any applications we create, the location of our static files, database configuration details, etc.
+
+<h5>yogashala's urls.py:</h5>
+In this file, we store all links of the project and functions to call.
+
+<h5>first_app's urls.py:</h5>
+urls.py is the URL configuration file. This is the file that allows you to map a certain URL to a certain function in views.py.
 
 
 ## Demo
