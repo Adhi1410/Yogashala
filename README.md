@@ -64,16 +64,28 @@ admin_attendance.html - admin_attendance.html page gives the attendance of the t
 
 cash.html - cash.html page gives the admin a detailed analysis of the cash flow for all courses. It also provides insight on which courses are preferred over the others.
 
-<h5>models.py:</h5>
+<h5>yogashala/models.py:</h5>
 It is the data access layer. It contains everything about the data, i.e., how to access it, how to validate it, its behaviors and the relationships between the data.
 
-<h5>yogashala's settings.py:</h5>
+<h5>yogashala/settings.py:</h5>
 As the name indicates it contains all the website settings. In this file, we register any applications we create, the location of our static files, database configuration details, etc.
 
-<h5>yogashala's urls.py:</h5>
+<h5>yogashala/views.py:</h5>
+It is the business logic layer. This layer contains the logic that accesses the model and defers to the appropriate template. It is like a bridge between the model and the template.
+
+<h5>yogashala/urls.py:</h5>
 In this file, we store all links of the project and functions to call.
 
-<h5>first_app's urls.py:</h5>
+<h5>first_app/models.py:</h5>
+It is the data access layer. It contains everything about the data, i.e., how to access it, how to validate it, its behaviors and the relationships between the data.
+
+<h5>first_app/settings.py:</h5>
+As the name indicates it contains all the website settings. In this file, we register any applications we create, the location of our static files, database configuration details, etc.
+
+<h5>first_app/views.py:</h5>
+It is the business logic layer. This layer contains the logic that accesses the model and defers to the appropriate template. It is like a bridge between the model and the template.
+
+<h5>first_app/urls.py:</h5>
 urls.py is the URL configuration file. This is the file that allows you to map a certain URL to a certain function in views.py.
 
 
