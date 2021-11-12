@@ -17,19 +17,17 @@ d) Analysis model of cash flow and footfall.<br>
 e) The cohesive flow of Time Table between modules.<br>
 
 <h2>DESCRIPTION OF FILES USED</h2>
-<h3>Django Folder and yogashala Folder</h3>:
+<h3>Django Folder and yogashala Folder:</h3>
 Consists of all files and folders with regards to the website.
-<h4>first_app Folder</h4>:
+<h4>first_app Folder:</h4>
 Contains all the database, tables, and html pages.
-<h5>templates Folder</h5>:
+<h5>templates Folder:</h5>
 Contains all the html pages of the website
-<h6>indexH.html</h6> - indexH.html page shows the generic home page displayed to users when they first visit the website without logging in.
+indexH.html - indexH.html page shows the generic home page displayed to users when they first visit the website without logging in.
 
-<h3>2.)login.html</h3>
-login.html page offers the user (all 3 classes of users) login option.
+login.html - login.html page offers the user (all 3 classes of users) login option.
 
-<h3>3.)user_dashboard.html</h3>
-user_dashboard.html page displays the timetable for the customer / student. This is also the home page for the user.
+user_dashboard.html - user_dashboard.html page displays the timetable for the customer / student. This is also the home page for the user.
 
 <h3>4.)myprofile.html</h3>
 myprofile.html page shows the student's profile. The user can edit their details to make their accounts more personalized.
