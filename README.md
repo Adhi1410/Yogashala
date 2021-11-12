@@ -23,6 +23,7 @@ Consists of all files and folders with regards to the website.
 Contains all the database, tables, and html pages.
 <h5>templates Folder:</h5>
 Contains all the html pages of the website
+<br>
 indexH.html - indexH.html page shows the generic home page displayed to users when they first visit the website without logging in.
 
 login.html - login.html page offers the user (all 3 classes of users) login option.
