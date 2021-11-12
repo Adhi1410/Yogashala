@@ -17,8 +17,13 @@ d) Analysis model of cash flow and footfall.<br>
 e) The cohesive flow of Time Table between modules.<br>
 
 <h2>DESCRIPTION OF FILES USED</h2>
-<h3>1.)indexH.html</h3>
-indexH.html page shows the generic home page displayed to users when they first visit the website without logging in.
+<h3>Django Folder and yogashala Folder</h3>:
+Consists of all files and folders with regards to the website.
+<h4>first_app Folder</h4>:
+Contains all the database, tables, and html pages.
+<h5>templates Folder</h5>:
+Contains all the html pages of the website
+<h6>indexH.html</h6> - indexH.html page shows the generic home page displayed to users when they first visit the website without logging in.
 
 <h3>2.)login.html</h3>
 login.html page offers the user (all 3 classes of users) login option.
