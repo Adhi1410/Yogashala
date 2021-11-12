@@ -73,3 +73,60 @@ admin_attendance.html page gives the attendance of the teachers for their course
 
 <h3>19.)cash.html</h3>
 cash.html page gives the admin a detailed analysis of the cash flow for all courses. It also provides insight on which courses are preferred over the others.
+
+
+## Demo
+
+🔗[Yogashaala]()
+
+## Tools Used
+
+#### Front-End
+```bash
+    HTML
+    CSS and Bootstrap
+    Javascript
+```
+#### Back-End
+```bash
+    Node.js
+    Django
+    Express
+```
+
+## Deployment
+
+#### Django installation
+```bash
+    pipenv install django
+```
+
+#### Project and App creation
+```bash
+    django-admin startproject {project-name}
+    python manage.py startapp {app-name}
+```
+
+#### Admin registration
+```bash
+    python manage.py createsuperuser
+```
+
+#### Run the Project (you can add a port number if you want)
+```bash
+    python manage.py runserver {port number}
+```
+
+#### Install SMTP
+```bash
+    pip install secure-smtplib
+```
+
+## Authors
+
+- [A Kirthic Vishnu]
+- [Adharsh S]
+- [Aditya Sriram]
+- [K Sandeep Kumar]
+- [Kumaresh S]
+
