@@ -19,6 +19,8 @@ e) The cohesive flow of Time Table between modules.<br>
 <h2>DESCRIPTION OF FILES USED</h2>
 <h3>Django Folder and yogashala Folder:</h3>
 Consists of all files and folders with regards to the website.
+<h4>static Folder:</h4>
+Consists of all the javascript and css files.
 <h4>first_app Folder:</h4>
 Contains all the database, tables, and html pages.
 <h5>templates Folder:</h5>
