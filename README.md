@@ -29,53 +29,37 @@ login.html - login.html page offers the user (all 3 classes of users) login opti
 
 user_dashboard.html - user_dashboard.html page displays the timetable for the customer / student. This is also the home page for the user.
 
-<h3>4.)myprofile.html</h3>
-myprofile.html page shows the student's profile. The user can edit their details to make their accounts more personalized.
+myprofile.html - myprofile.html page shows the student's profile. The user can edit their details to make their accounts more personalized.
 
-<h3>5.)user_courses.html</h3>
-user_courses.html page gives the courses in which the student is or was enrolled in.
+user_courses.html - user_courses.html page gives the courses in which the student is or was enrolled in.
 
-<h3>6.)transaction.html</h3>
-transaction.html page gives the student the courses they had purchased along with their purchase date and active status.
+transaction.html - transaction.html page gives the student the courses they had purchased along with their purchase date and active status.
 
-<h3>7.)TeacherHome.html</h3>
-TeacherHome.html page displays the timetable for the teacher. This is also the home page for the teacher.
+TeacherHome.html - TeacherHome.html page displays the timetable for the teacher. This is also the home page for the teacher.
 
-<h3>8.)reschedule.html</h3>
-reschedule.html page offers the teacher the option to reschedule their class's date and time.
+reschedule.html - reschedule.html page offers the teacher the option to reschedule their class's date and time.
 
-<h3>9.)reschedule_check.html</h3>
-reschedule_check.html page shows the teacher's rescheduling request's status.
+reschedule_check.html - reschedule_check.html page shows the teacher's rescheduling request's status.
 
-<h3>10.)attendance_add.html</h3>
-attendance_add.html page is used by the teacher to add attendance for a particular course on a particular date.
+attendance_add.html - attendance_add.html page is used by the teacher to add attendance for a particular course on a particular date.
 
-<h3>11.)attendance_view.html</h3>
-attendance_view.html page displays the attendance of the students under that particular teacher's course.
+attendance_view.html - attendance_view.html page displays the attendance of the students under that particular teacher's course.
 
-<h3>12.)admin_home.html</h3>
-admin_home.html page shows the admin's home page which consists of the Master timetable.
+admin_home.html - admin_home.html page shows the admin's home page which consists of the Master timetable.
 
-<h3>13.)reschedule_approve.html</h3>
-reschedule_approve.html page gives all the rescheduling requests sent by all the teachers. The admin can choose to approve or deny each request. It also shows the rescheduling analysis of different teachers.
+reschedule_approve.html - reschedule_approve.html page gives all the rescheduling requests sent by all the teachers. The admin can choose to approve or deny each request. It also shows the rescheduling analysis of different teachers.
 
-<h3>14.)edit_timetable.html</h3>
-edit_timetable.html page gives the admin access to edit the master timetable itself. Any change in the master timetable will be reflected in every student's and teacher's timetables.
+edit_timetable.html - edit_timetable.html page gives the admin access to edit the master timetable itself. Any change in the master timetable will be reflected in every student's and teacher's timetables.
 
-<h3>15.)add_student.html</h3>
-add_student.html page displays the student adding option to the admin. Using this, the admin can add students to their respective courses as well as create their student ids themselves.
+add_student.html - add_student.html page displays the student adding option to the admin. Using this, the admin can add students to their respective courses as well as create their student ids themselves.
 
-<h3>16.)add_teacher.html</h3>
-add_teacher.html page offers the admin the facility to add teacher accounts. While creating the teacher's account, the courses the respective teachers will be responsible for will also be mentioned priorly.
+add_teacher.html - add_teacher.html page offers the admin the facility to add teacher accounts. While creating the teacher's account, the courses the respective teachers will be responsible for will also be mentioned priorly.
 
-<h3>17.)add_course.html</h3>
-add_course.html page shows the course adding feature of the web application.
+add_course.html - add_course.html page shows the course adding feature of the web application.
 
-<h3>18.)admin_attendance.html</h3>
-admin_attendance.html page gives the attendance of the teachers for their courses.
+admin_attendance.html - admin_attendance.html page gives the attendance of the teachers for their courses.
 
-<h3>19.)cash.html</h3>
-cash.html page gives the admin a detailed analysis of the cash flow for all courses. It also provides insight on which courses are preferred over the others.
+cash.html - cash.html page gives the admin a detailed analysis of the cash flow for all courses. It also provides insight on which courses are preferred over the others.
 
 
 ## Demo
