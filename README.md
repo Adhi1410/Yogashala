@@ -22,7 +22,7 @@ Consists of all files and folders with regards to the website.
 <h4>first_app Folder:</h4>
 Contains all the database, tables, and html pages.
 <h5>templates Folder:</h5>
-Contains all the html pages of the website
+Contains all the html pages of the website<r><br>
 
 
 
