@@ -77,7 +77,7 @@ cash.html page gives the admin a detailed analysis of the cash flow for all cour
 
 ## Demo
 
-🔗[Yogashaala]()
+🔗[Yogashaala](https://drive.google.com/file/d/15hSU4nIt6ksfu3cgIDf9l_RAzzhlPFZf/view?usp=sharing)
 
 ## Tools Used
 
